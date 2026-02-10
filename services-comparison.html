@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS 서비스 비교 - AWS 자격증 가이드</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">AWS 자격증 가이드</h1>
+            <ul class="nav-links">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="cloud-practitioner.html">Cloud Practitioner</a></li>
+                <li><a href="ai-practitioner.html">AI Practitioner</a></li>
+                <li><a href="study-tips.html">학습 팁</a></li>
+                <li><a href="services-comparison.html">서비스 비교</a></li>
+                <li><a href="services-comparison.html">서비스 비교</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="content-header">
+            <h1>AWS 서비스 상세 비교</h1>
+            <p>유사 서비스 간의 차이점을 명확히 이해하고 올바른 선택하기</p>
+        </div>
+
+        <section class="domain-section">
+            <h2>컴퓨팅 서비스 비교</h2>
+            
+            <h3>EC2 vs Lambda vs Fargate</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>특성</th>
+                        <th>EC2</th>
+                        <th>Lambda</th>
+                        <th>Fargate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>관리</strong></td>
+                        <td>서버 관리 필요</td>
+                        <td>서버리스</td>
+                        <td>서버리스 컨테이너</td>
+                    </tr>
+                    <tr>
+                        <td><strong>실행 시간</strong></td>
+                        <td>무제한</td>
+                        <td>최대 15분</td>
+                        <td>무제한</td>
+                    </tr>
+                    <tr>
+                        <td><strong>과금</strong></td>
+                        <td>인스턴스 실행 시간</td>
+                        <td>요청 수 + 실행 시간</td>
+                        <td>vCPU + 메모리 사용량</td>
+                    </tr>
+                    <tr>
+                        <td><strong>스케일링</strong></td>
+                        <td>Auto Scaling 설정 필요</td>
+                        <td>자동 스케일링</td>
+                        <td>자동 스케일링</td>
+                    </tr>
+                    <tr>
+                        <td><strong>시작 시간</strong></td>
+                        <td>분 단위</td>
+                        <td>밀리초 단위</td>
+                        <td>초 단위</td>
+                    </tr>
+                    <tr>
+                        <td><strong>사용 사례</strong></td>
+                        <td>장기 실행, 완전한 제어</td>
+                        <td>이벤트 기반, 짧은 작업</td>
+                        <td>컨테이너, 서버 관리 불필요</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="exam-tip">
+                <strong>시험 팁:</strong>
+                <ul>
+                    <li>"서버 관리 없이" → Lambda 또는 Fargate</li>
+                    <li>"15분 이상 실행" → EC2 또는 Fargate</li>
+                    <li>"컨테이너 + 서버리스" → Fargate</li>
+                    <li>"완전한 OS 제어" → EC2</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="domain-section">
+            <h2>스토리지 서비스 비교</h2>
+            
+            <h3>S3 vs EBS vs EFS</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>특성</th>
+                        <th>S3</th>
+                        <th>EBS</th>
+                        <th>EFS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>타입</strong></td>
+                        <td>객체 스토리지</td>
+                        <td>블록 스토리지</td>
+                        <td>파일 스토리지</td>
+                    </tr>
+                    <tr>
+                        <td><strong>용량</strong></td>
+                        <td>무제한</td>
+                        <td>최대 64TB</td>
+                        <td>자동 확장</td>
+                    </tr>
+                    <tr>
+                        <td><strong>액세스</strong></td>
+                        <td>HTTP/HTTPS API</td>
+                        <td>EC2 인스턴스 연결</td>
+                        <td>NFS 프로토콜</td>
+                    </tr>
+                    <tr>
+                        <td><strong>동시 액세스</strong></td>
+                        <td>무제한</td>
+                        <td>단일 인스턴스 (Multi-Attach 제외)</td>
+                        <td>수천 개 동시 연결</td>
+                    </tr>
+                    <tr>
+                        <td><strong>가용성</strong></td>
+                        <td>여러 AZ (99.99%)</td>
+                        <td>단일 AZ</td>
+                        <td>여러 AZ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>내구성</strong></td>
+                        <td>99.999999999% (11 9's)</td>
+                        <td>99.8-99.9%</td>
+                        <td>99.999999999% (11 9's)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>사용 사례</strong></td>
+                        <td>정적 파일, 백업, 데이터 레이크</td>
+                        <td>데이터베이스, 부팅 볼륨</td>
+                        <td>공유 파일 시스템, 콘텐츠 관리</td>
+                    </tr>
+                    <tr>
+                        <td><strong>가격</strong></td>
+                        <td>저장 용량 + 요청 수</td>
+                        <td>프로비저닝된 용량</td>
+                        <td>사용한 용량</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="service-card">
+                <h4>S3 스토리지 클래스 상세 비교</h4>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>클래스</th>
+                            <th>사용 사례</th>
+                            <th>최소 저장 기간</th>
+                            <th>검색 시간</th>
+                            <th>가용성</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>S3 Standard</strong></td>
+                            <td>자주 액세스하는 데이터</td>
+                            <td>없음</td>
+                            <td>즉시</td>
+                            <td>99.99%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>S3 Intelligent-Tiering</strong></td>
+                            <td>액세스 패턴 불확실</td>
+                            <td>없음</td>
+                            <td>즉시</td>
+                            <td>99.9%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>S3 Standard-IA</strong></td>
+                            <td>자주 액세스하지 않지만 빠른 검색 필요</td>
+                            <td>30일</td>
+                            <td>즉시</td>
+                            <td>99.9%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>S3 One Zone-IA</strong></td>
+                            <td>재생성 가능한 데이터</td>
+                            <td>30일</td>
+                            <td>즉시</td>
+                            <td>99.5%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>S3 Glacier Instant Retrieval</strong></td>
+                            <td>분기별 액세스, 밀리초 검색</td>
+                            <td>90일</td>
+                            <td>밀리초</td>
+                            <td>99.9%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>S3 Glacier Flexible Retrieval</strong></td>
+                            <td>연 1-2회 액세스</td>
+                            <td>90일</td>
+                            <td>분~시간</td>
+                            <td>99.99%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>S3 Glacier Deep Archive</strong></td>
+                            <td>장기 보관 (7-10년)</td>
+                            <td>180일</td>
+                            <td>12시간</td>
+                            <td>99.99%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="domain-section">
+            <h2>데이터베이스 서비스 비교</h2>
+            
+            <h3>RDS vs DynamoDB vs Aurora</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>특성</th>
+                        <th>RDS</th>
+                        <th>DynamoDB</th>
+                        <th>Aurora</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>타입</strong></td>
+                        <td>관계형 (SQL)</td>
+                        <td>NoSQL (키-값, 문서)</td>
+                        <td>관계형 (SQL)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>엔진</strong></td>
+                        <td>MySQL, PostgreSQL, Oracle, SQL Server, MariaDB</td>
+                        <td>AWS 독점</td>
+                        <td>MySQL, PostgreSQL 호환</td>
+                    </tr>
+                    <tr>
+                        <td><strong>스케일링</strong></td>
+                        <td>수직 (인스턴스 크기)</td>
+                        <td>자동 수평 스케일링</td>
+                        <td>자동 스토리지 확장</td>
+                    </tr>
+                    <tr>
+                        <td><strong>성능</strong></td>
+                        <td>표준</td>
+                        <td>한 자릿수 밀리초</td>
+                        <td>MySQL 5배, PostgreSQL 3배</td>
+                    </tr>
+                    <tr>
+                        <td><strong>가용성</strong></td>
+                        <td>Multi-AZ 옵션</td>
+                        <td>자동 Multi-AZ</td>
+                        <td>자동 Multi-AZ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>백업</strong></td>
+                        <td>자동 백업 (최대 35일)</td>
+                        <td>온디맨드 + PITR</td>
+                        <td>자동 백업 (최대 35일)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>사용 사례</strong></td>
+                        <td>기존 애플리케이션, 복잡한 쿼리</td>
+                        <td>모바일 앱, 게임, IoT</td>
+                        <td>고성능 애플리케이션</td>
+                    </tr>
+                    <tr>
+                        <td><strong>가격</strong></td>
+                        <td>중간</td>
+                        <td>사용량 기반 (저렴)</td>
+                        <td>비쌈 (성능 대비 가치)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="exam-tip">
+                <strong>시험 팁:</strong>
+                <ul>
+                    <li>"밀리초 지연시간" → DynamoDB</li>
+                    <li>"기존 MySQL/PostgreSQL 마이그레이션" → RDS 또는 Aurora</li>
+                    <li>"고성능 필요" → Aurora</li>
+                    <li>"서버리스 데이터베이스" → DynamoDB 또는 Aurora Serverless</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="domain-section">
+            <h2>AI/ML 서비스 비교</h2>
+            
+            <h3>사전 학습 AI 서비스 vs SageMaker vs Bedrock</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>특성</th>
+                        <th>AI 서비스<br>(Rekognition, Comprehend 등)</th>
+                        <th>SageMaker</th>
+                        <th>Bedrock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>난이도</strong></td>
+                        <td>쉬움 (코드 불필요)</td>
+                        <td>어려움 (ML 지식 필요)</td>
+                        <td>중간 (API 호출)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>커스터마이징</strong></td>
+                        <td>제한적</td>
+                        <td>완전한 제어</td>
+                        <td>중간 (Fine-tuning 가능)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>사용 사례</strong></td>
+                        <td>일반적인 AI 작업</td>
+                        <td>커스텀 ML 모델</td>
+                        <td>생성형 AI 애플리케이션</td>
+                    </tr>
+                    <tr>
+                        <td><strong>비용</strong></td>
+                        <td>저렴 (사용량 기반)</td>
+                        <td>비쌈 (인프라 비용)</td>
+                        <td>중간 (토큰 기반)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>배포 시간</strong></td>
+                        <td>즉시</td>
+                        <td>주~월</td>
+                        <td>일~주</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ML 전문성</strong></td>
+                        <td>불필요</td>
+                        <td>필수</td>
+                        <td>기본 지식</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="service-card">
+                <h4>AI 서비스 선택 가이드</h4>
+                <ul>
+                    <li><strong>이미지 분석:</strong> Rekognition (얼굴 인식, 객체 감지, 콘텐츠 조정)</li>
+                    <li><strong>문서 처리:</strong> Textract (OCR, 양식/테이블 추출)</li>
+                    <li><strong>텍스트 분석:</strong> Comprehend (감정 분석, 엔티티 인식)</li>
+                    <li><strong>음성 → 텍스트:</strong> Transcribe (회의록, 자막)</li>
+                    <li><strong>텍스트 → 음성:</strong> Polly (오디오북, 음성 안내)</li>
+                    <li><strong>번역:</strong> Translate (다국어 지원)</li>
+                    <li><strong>챗봇:</strong> Lex (대화형 인터페이스)</li>
+                    <li><strong>검색:</strong> Kendra (지능형 엔터프라이즈 검색)</li>
+                    <li><strong>추천:</strong> Personalize (개인화 추천 시스템)</li>
+                    <li><strong>예측:</strong> Forecast (시계열 예측)</li>
+                    <li><strong>사기 탐지:</strong> Fraud Detector (온라인 사기 식별)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="domain-section">
+            <h2>네트워킹 서비스 비교</h2>
+            
+            <h3>보안 그룹 vs NACL</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>특성</th>
+                        <th>보안 그룹</th>
+                        <th>NACL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>레벨</strong></td>
+                        <td>인스턴스 레벨</td>
+                        <td>서브넷 레벨</td>
+                    </tr>
+                    <tr>
+                        <td><strong>상태</strong></td>
+                        <td>Stateful (응답 자동 허용)</td>
+                        <td>Stateless (명시적 규칙 필요)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>규칙</strong></td>
+                        <td>허용 규칙만</td>
+                        <td>허용 + 거부 규칙</td>
+                    </tr>
+                    <tr>
+                        <td><strong>평가</strong></td>
+                        <td>모든 규칙 평가</td>
+                        <td>번호 순서대로 평가</td>
+                    </tr>
+                    <tr>
+                        <td><strong>적용</strong></td>
+                        <td>명시적으로 연결된 인스턴스만</td>
+                        <td>서브넷의 모든 인스턴스</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="exam-tip">
+                <strong>시험 팁:</strong>
+                <ul>
+                    <li>"특정 IP 차단" → NACL (거부 규칙 가능)</li>
+                    <li>"인스턴스별 제어" → 보안 그룹</li>
+                    <li>"서브넷 전체 보호" → NACL</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="domain-section">
+            <h2>생성형 AI: RAG vs Fine-tuning</h2>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>특성</th>
+                        <th>RAG</th>
+                        <th>Fine-tuning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>목적</strong></td>
+                        <td>외부 지식 활용</td>
+                        <td>모델 동작 변경</td>
+                    </tr>
+                    <tr>
+                        <td><strong>비용</strong></td>
+                        <td>낮음</td>
+                        <td>높음 (재학습 필요)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>시간</strong></td>
+                        <td>빠름 (즉시 적용)</td>
+                        <td>느림 (학습 시간 필요)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>업데이트</strong></td>
+                        <td>문서만 업데이트</td>
+                        <td>재학습 필요</td>
+                    </tr>
+                    <tr>
+                        <td><strong>정확도</strong></td>
+                        <td>출처 제공 가능</td>
+                        <td>모델에 내재화</td>
+                    </tr>
+                    <tr>
+                        <td><strong>사용 사례</strong></td>
+                        <td>최신 정보, 특정 문서 활용, 회사 지식 베이스</td>
+                        <td>특정 스타일/형식 학습, 도메인 특화</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AWS 서비스</strong></td>
+                        <td>Bedrock Knowledge Bases</td>
+                        <td>Bedrock Custom Models, SageMaker</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="exam-tip">
+                <strong>시험 팁:</strong>
+                <ul>
+                    <li>"회사 문서 기반 질의응답" → RAG</li>
+                    <li>"최신 정보 반영" → RAG</li>
+                    <li>"특정 스타일로 글쓰기" → Fine-tuning</li>
+                    <li>"빠른 구현" → RAG</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 AWS 자격증 공부 가이드. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

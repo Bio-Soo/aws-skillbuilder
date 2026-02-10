@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS AI Practitioner - 학습 가이드</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">AWS 자격증 가이드</h1>
+            <ul class="nav-links">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="cloud-practitioner.html">Cloud Practitioner</a></li>
+                <li><a href="ai-practitioner.html">AI Practitioner</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="content-header">
+            <h1>AWS Certified AI Practitioner (AIF-C01)</h1>
+            <p>AWS의 AI/ML 서비스와 생성형 AI에 대한 기본 지식을 검증하는 자격증</p>
+        </div>
+
+        <section class="domain-section">
+            <h2>도메인 1: AI 및 ML의 기초 (20%)</h2>
+            
+            <h3>1.1 AI/ML 기본 개념</h3>
+            <div class="service-card">
+                <h4>핵심 용어</h4>
+                <span class="keyword-tag">인공지능</span>
+                <span class="keyword-tag">머신러닝</span>
+                <span class="keyword-tag">딥러닝</span>
+                <span class="keyword-tag">생성형 AI</span>
+                <ul>
+                    <li><strong>인공지능(AI):</strong> 인간의 지능을 모방하는 기술</li>
+                    <li><strong>머신러닝(ML):</strong> 데이터로부터 학습하는 AI의 하위 분야</li>
+                    <li><strong>딥러닝(DL):</strong> 신경망을 사용하는 ML의 하위 분야</li>
+                    <li><strong>생성형 AI:</strong> 새로운 콘텐츠를 생성하는 AI (텍스트, 이미지, 코드 등)</li>
+                </ul>
+            </div>
+
+            <h3>1.2 ML 학습 유형</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>학습 유형</th>
+                        <th>설명</th>
+                        <th>사용 사례</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>지도 학습</strong></td>
+                        <td>레이블이 있는 데이터로 학습</td>
+                        <td>분류, 회귀 (스팸 필터, 가격 예측)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>비지도 학습</strong></td>
+                        <td>레이블 없는 데이터에서 패턴 발견</td>
+                        <td>클러스터링, 이상 탐지</td>
+                    </tr>
+                    <tr>
+                        <td><strong>강화 학습</strong></td>
+                        <td>보상을 통해 학습</td>
+                        <td>게임 AI, 로봇 제어</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>1.3 ML 파이프라인</h3>
+            <div class="service-card">
+                <h4>ML 개발 단계</h4>
+                <ol>
+                    <li><strong>문제 정의:</strong> 비즈니스 문제를 ML 문제로 변환</li>
+                    <li><strong>데이터 수집:</strong> 학습에 필요한 데이터 수집</li>
+                    <li><strong>데이터 전처리:</strong> 정제, 변환, 특성 엔지니어링</li>
+                    <li><strong>모델 학습:</strong> 알고리즘 선택 및 학습</li>
+                    <li><strong>모델 평가:</strong> 성능 측정 (정확도, F1 스코어 등)</li>
+                    <li><strong>모델 배포:</strong> 프로덕션 환경에 배포</li>
+                    <li><strong>모니터링:</strong> 성능 추적 및 재학습</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="domain-section">
+            <h2>도메인 2: 생성형 AI의 기초 (24%)</h2>
+            
+            <h3>2.1 생성형 AI 핵심 개념</h3>
+            <div class="service-card">
+                <h4>Foundation Models (기초 모델)</h4>
+                <span class="keyword-tag">LLM</span>
+                <span class="keyword-tag">프롬프트</span>
+                <span class="keyword-tag">토큰</span>
+                <span class="keyword-tag">임베딩</span>
+                <ul>
+                    <li><strong>LLM (Large Language Model):</strong> 대규모 텍스트 데이터로 학습된 모델</li>
+                    <li><strong>프롬프트:</strong> 모델에 제공하는 입력 텍스트</li>
+                    <li><strong>토큰:</strong> 텍스트의 기본 단위 (단어, 문자 조각)</li>
+                    <li><strong>임베딩:</strong> 텍스트를 벡터로 변환</li>
+                    <li><strong>컨텍스트 윈도우:</strong> 모델이 한 번에 처리할 수 있는 토큰 수</li>
+                </ul>
+            </div>
+
+            <h3>2.2 프롬프트 엔지니어링</h3>
+            <div class="service-card">
+                <h4>효과적인 프롬프트 작성 기법</h4>
+                <ul>
+                    <li><strong>Zero-shot:</strong> 예시 없이 작업 수행</li>
+                    <li><strong>Few-shot:</strong> 몇 가지 예시 제공</li>
+                    <li><strong>Chain-of-Thought:</strong> 단계별 추론 유도</li>
+                    <li><strong>명확한 지시:</strong> 구체적이고 명확한 요청</li>
+                    <li><strong>역할 부여:</strong> "당신은 전문가입니다" 등</li>
+                </ul>
+            </div>
+
+            <h3>2.3 RAG (Retrieval Augmented Generation)</h3>
+            <div class="service-card">
+                <h4>RAG 아키텍처</h4>
+                <p><strong>개념:</strong> 외부 지식 베이스에서 관련 정보를 검색하여 LLM 응답 개선</p>
+                <p><strong>구성 요소:</strong></p>
+                <ol>
+                    <li><strong>문서 임베딩:</strong> 문서를 벡터로 변환</li>
+                    <li><strong>벡터 데이터베이스:</strong> 임베딩 저장 (OpenSearch, Pinecone 등)</li>
+                    <li><strong>검색:</strong> 쿼리와 유사한 문서 검색</li>
+                    <li><strong>생성:</strong> 검색된 정보를 컨텍스트로 LLM 응답 생성</li>
+                </ol>
+                <div class="exam-tip">
+                    <strong>시험 팁:</strong> RAG는 모델 재학습 없이 최신 정보나 특정 도메인 지식을 활용할 때 사용
+                </div>
+            </div>
+
+            <h3>2.4 Fine-tuning vs RAG</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>특성</th>
+                        <th>Fine-tuning</th>
+                        <th>RAG</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>목적</strong></td>
+                        <td>모델 동작 변경</td>
+                        <td>지식 확장</td>
+                    </tr>
+                    <tr>
+                        <td><strong>비용</strong></td>
+                        <td>높음 (재학습 필요)</td>
+                        <td>낮음</td>
+                    </tr>
+                    <tr>
+                        <td><strong>업데이트</strong></td>
+                        <td>재학습 필요</td>
+                        <td>문서만 업데이트</td>
+                    </tr>
+                    <tr>
+                        <td><strong>사용 사례</strong></td>
+                        <td>특정 스타일, 형식 학습</td>
+                        <td>최신 정보, 특정 문서 활용</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="domain-section">
+            <h2>도메인 3: AWS AI/ML 서비스 응용 (28%)</h2>
+            
+            <h3>3.1 Amazon Bedrock</h3>
+            <div class="service-card">
+                <h4>핵심 서비스</h4>
+                <span class="keyword-tag">Foundation Models</span>
+                <span class="keyword-tag">API</span>
+                <span class="keyword-tag">서버리스</span>
+                <p><strong>설명:</strong> 다양한 기초 모델을 API로 사용할 수 있는 완전 관리형 서비스</p>
+                <p><strong>지원 모델:</strong></p>
+                <ul>
+                    <li><strong>Amazon Titan:</strong> AWS 자체 모델 (텍스트, 임베딩, 이미지)</li>
+                    <li><strong>Anthropic Claude:</strong> 대화 및 분석</li>
+                    <li><strong>AI21 Labs Jurassic:</strong> 텍스트 생성</li>
+                    <li><strong>Cohere:</strong> 텍스트 생성 및 임베딩</li>
+                    <li><strong>Meta Llama:</strong> 오픈소스 모델</li>
+                    <li><strong>Stability AI:</strong> 이미지 생성</li>
+                </ul>
+                <p><strong>주요 기능:</strong></p>
+                <ul>
+                    <li><strong>Knowledge Bases:</strong> RAG 구현을 위한 관리형 서비스</li>
+                    <li><strong>Agents:</strong> 작업을 자동으로 수행하는 AI 에이전트</li>
+                    <li><strong>Guardrails:</strong> 안전하고 책임 있는 AI 사용을 위한 정책</li>
+                    <li><strong>Model Evaluation:</strong> 모델 성능 비교</li>
+                </ul>
+            </div>
+
+            <h3>3.2 Amazon SageMaker</h3>
+            <div class="service-card">
+                <h4>ML 개발 플랫폼</h4>
+                <span class="keyword-tag">노트북</span>
+                <span class="keyword-tag">학습</span>
+                <span class="keyword-tag">배포</span>
+                <span class="keyword-tag">MLOps</span>
+                <p><strong>주요 기능:</strong></p>
+                <ul>
+                    <li><strong>SageMaker Studio:</strong> 통합 ML 개발 환경</li>
+                    <li><strong>SageMaker Notebooks:</strong> Jupyter 노트북</li>
+                    <li><strong>SageMaker Training:</strong> 분산 학습 지원</li>
+                    <li><strong>SageMaker Endpoints:</strong> 모델 배포 및 추론</li>
+                    <li><strong>SageMaker Autopilot:</strong> 자동 ML (AutoML)</li>
+                    <li><strong>SageMaker Pipelines:</strong> ML 워크플로우 자동화</li>
+                    <li><strong>SageMaker Model Monitor:</strong> 모델 성능 모니터링</li>
+                </ul>
+            </div>
+
+            <h3>3.3 AI 서비스 (사전 학습된 모델)</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>서비스</th>
+                        <th>기능</th>
+                        <th>사용 사례</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Amazon Rekognition</strong></td>
+                        <td>이미지/비디오 분석</td>
+                        <td>얼굴 인식, 객체 탐지, 콘텐츠 조정</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Amazon Textract</strong></td>
+                        <td>문서에서 텍스트 추출</td>
+                        <td>OCR, 양식 처리, 테이블 추출</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Amazon Comprehend</strong></td>
+                        <td>자연어 처리 (NLP)</td>
+                        <td>감정 분석, 엔티티 인식, 주제 모델링</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Amazon Translate</strong></td>
+                        <td>신경망 기계 번역</td>
+                        <td>다국어 콘텐츠 번역</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Amazon Transcribe</strong></td>
+                        <td>음성을 텍스트로 변환</td>
+                        <td>자막 생성, 콜센터 분석</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Amazon Polly</strong></td>
+                        <td>텍스트를 음성으로 변환</td>
+                        <td>오디오북, 음성 안내</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Amazon Lex</strong></td>
+                        <td>대화형 인터페이스 구축</td>
+                        <td>챗봇, 음성 비서</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Amazon Personalize</strong></td>
+                        <td>개인화 추천</td>
+                        <td>제품 추천, 콘텐츠 큐레이션</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Amazon Forecast</strong></td>
+                        <td>시계열 예측</td>
+                        <td>수요 예측, 재고 관리</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Amazon Kendra</strong></td>
+                        <td>지능형 검색</td>
+                        <td>엔터프라이즈 검색, 문서 검색</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>3.4 서비스 선택 가이드</h3>
+            <div class="service-card">
+                <h4>언제 어떤 서비스를 사용할까?</h4>
+                <ul>
+                    <li><strong>사전 학습된 AI 서비스:</strong> 빠른 구현, 커스터마이징 불필요</li>
+                    <li><strong>Amazon Bedrock:</strong> 생성형 AI, 다양한 모델 선택, 서버리스</li>
+                    <li><strong>Amazon SageMaker:</strong> 커스텀 ML 모델, 완전한 제어, MLOps</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="domain-section">
+            <h2>도메인 4: 책임 있는 AI 지침 (14%)</h2>
+            
+            <h3>4.1 AI 윤리 및 책임</h3>
+            <div class="service-card">
+                <h4>핵심 원칙</h4>
+                <ul>
+                    <li><strong>공정성:</strong> 편향 없는 AI, 모든 사용자에게 공평</li>
+                    <li><strong>설명 가능성:</strong> AI 결정을 이해하고 설명 가능</li>
+                    <li><strong>투명성:</strong> AI 사용을 명확히 공개</li>
+                    <li><strong>프라이버시:</strong> 개인정보 보호</li>
+                    <li><strong>보안:</strong> 악의적 사용 방지</li>
+                    <li><strong>안전성:</strong> 유해한 콘텐츠 생성 방지</li>
+                </ul>
+            </div>
+
+            <h3>4.2 편향 및 공정성</h3>
+            <div class="service-card">
+                <h4>편향의 종류</h4>
+                <ul>
+                    <li><strong>데이터 편향:</strong> 학습 데이터의 불균형</li>
+                    <li><strong>알고리즘 편향:</strong> 모델 설계의 문제</li>
+                    <li><strong>사회적 편향:</strong> 기존 사회 편견 반영</li>
+                </ul>
+                <p><strong>완화 방법:</strong></p>
+                <ul>
+                    <li>다양한 데이터셋 사용</li>
+                    <li>정기적인 모델 평가 및 감사</li>
+                    <li>SageMaker Clarify로 편향 탐지</li>
+                </ul>
+            </div>
+
+            <h3>4.3 Amazon Bedrock Guardrails</h3>
+            <div class="service-card">
+                <h4>안전장치 기능</h4>
+                <ul>
+                    <li><strong>콘텐츠 필터:</strong> 유해 콘텐츠 차단 (폭력, 증오, 성적 콘텐츠)</li>
+                    <li><strong>주제 거부:</strong> 특정 주제에 대한 응답 거부</li>
+                    <li><strong>단어 필터:</strong> 금지 단어 차단</li>
+                    <li><strong>PII 보호:</strong> 개인정보 마스킹</li>
+                </ul>
+            </div>
+
+            <h3>4.4 규정 준수</h3>
+            <div class="service-card">
+                <ul>
+                    <li><strong>GDPR:</strong> 유럽 개인정보 보호 규정</li>
+                    <li><strong>HIPAA:</strong> 의료 정보 보호</li>
+                    <li><strong>SOC:</strong> 보안 및 가용성 인증</li>
+                    <li><strong>ISO 27001:</strong> 정보 보안 관리</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="domain-section">
+            <h2>도메인 5: AI 솔루션의 보안, 규정 준수 및 거버넌스 (14%)</h2>
+            
+            <h3>5.1 AI 보안</h3>
+            <div class="service-card">
+                <h4>보안 모범 사례</h4>
+                <ul>
+                    <li><strong>IAM:</strong> 최소 권한 원칙, 역할 기반 액세스</li>
+                    <li><strong>암호화:</strong> 전송 중(TLS) 및 저장 시(KMS) 암호화</li>
+                    <li><strong>VPC:</strong> 프라이빗 네트워크에서 모델 실행</li>
+                    <li><strong>모니터링:</strong> CloudTrail로 API 호출 추적</li>
+                </ul>
+            </div>
+
+            <h3>5.2 데이터 보호</h3>
+            <div class="service-card">
+                <ul>
+                    <li><strong>데이터 분류:</strong> 민감도에 따라 데이터 분류</li>
+                    <li><strong>액세스 제어:</strong> 필요한 사람만 접근</li>
+                    <li><strong>데이터 익명화:</strong> 개인정보 제거</li>
+                    <li><strong>백업:</strong> 정기적인 데이터 백업</li>
+                </ul>
+            </div>
+
+            <h3>5.3 모델 거버넌스</h3>
+            <div class="service-card">
+                <h4>SageMaker Model Governance</h4>
+                <ul>
+                    <li><strong>Model Registry:</strong> 모델 버전 관리</li>
+                    <li><strong>Model Cards:</strong> 모델 문서화 (목적, 성능, 제한사항)</li>
+                    <li><strong>Model Monitor:</strong> 프로덕션 모델 성능 추적</li>
+                    <li><strong>Model Explainability:</strong> 예측 설명</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="domain-section">
+            <h2>연습 문제</h2>
+            
+            <div class="exam-tip">
+                <strong>시험 준비:</strong> 실제 시험과 유사한 문제로 연습하세요. 각 문제의 키워드와 정답 패턴을 익히는 것이 중요합니다.
+            </div>
+
+            <div class="service-card">
+                <h4>문제 1: Amazon SageMaker</h4>
+                <p>한 회사가 고객 이탈 예측 모델을 개발하려고 합니다. 데이터 과학자들이 Jupyter 노트북을 사용하여 모델을 훈련하고, 자동으로 하이퍼파라미터를 최적화하며, 프로덕션 환경에 배포하려고 합니다. 가장 적합한 AWS 서비스는?</p>
+                <ul>
+                    <li>A) Amazon Comprehend</li>
+                    <li>B) Amazon SageMaker</li>
+                    <li>C) Amazon Rekognition</li>
+                    <li>D) AWS DeepRacer</li>
+                </ul>
+                <div class="exam-tip">
+                    <strong>정답: B</strong><br>
+                    SageMaker는 ML 모델 구축, 훈련, 배포를 위한 완전 관리형 서비스입니다. Jupyter 노트북, 하이퍼파라미터 튜닝, 프로덕션 배포를 모두 지원합니다.
+                </div>
+            </div>
+
+            <div class="service-card">
+                <h4>문제 2: Amazon Bedrock</h4>
+                <p>생성형 AI 애플리케이션을 구축하려는 스타트업이 사전 훈련된 기초 모델(Foundation Model)에 API를 통해 접근하고 싶어합니다. 자체 인프라 관리 없이 Claude, Llama 등의 모델을 사용하려면?</p>
+                <ul>
+                    <li>A) Amazon SageMaker JumpStart</li>
+                    <li>B) Amazon Bedrock</li>
+                    <li>C) Amazon Lex</li>
+                    <li>D) Amazon Polly</li>
+                </ul>
+                <div class="exam-tip">
+                    <strong>정답: B</strong><br>
+                    Bedrock은 API를 통해 여러 기초 모델에 접근할 수 있는 완전 관리형 서비스입니다. 인프라 관리 없이 서버리스로 사용 가능합니다.
+                </div>
+            </div>
+
+            <div class="service-card">
+                <h4>문제 3: 책임 있는 AI</h4>
+                <p>AI 시스템 개발 시 편향(bias)을 감지하고 완화하는 것이 중요합니다. Amazon SageMaker에서 모델의 편향을 감지하고 설명 가능성을 제공하는 기능은?</p>
+                <ul>
+                    <li>A) SageMaker Autopilot</li>
+                    <li>B) SageMaker Clarify</li>
+                    <li>C) SageMaker Debugger</li>
+                    <li>D) SageMaker Neo</li>
+                </ul>
+                <div class="exam-tip">
+                    <strong>정답: B</strong><br>
+                    SageMaker Clarify는 편향 감지 및 모델 설명 가능성을 제공합니다. 책임 있는 AI 구현의 핵심 도구입니다.
+                </div>
+            </div>
+
+            <div class="service-card">
+                <h4>문제 4: Amazon Rekognition</h4>
+                <p>소셜 미디어 플랫폼에서 업로드된 이미지에서 부적절한 콘텐츠를 자동으로 감지하고 필터링하려고 합니다. 가장 적합한 서비스는?</p>
+                <ul>
+                    <li>A) Amazon Textract</li>
+                    <li>B) Amazon Comprehend</li>
+                    <li>C) Amazon Rekognition</li>
+                    <li>D) Amazon Transcribe</li>
+                </ul>
+                <div class="exam-tip">
+                    <strong>정답: C</strong><br>
+                    Rekognition은 이미지 및 비디오 분석, 콘텐츠 조정(moderation) 기능을 제공합니다. 부적절한 콘텐츠 자동 감지에 최적화되어 있습니다.
+                </div>
+            </div>
+
+            <div class="service-card">
+                <h4>문제 5: ML 파이프라인</h4>
+                <p>ML 워크플로우를 자동화하고 데이터 준비, 모델 훈련, 평가, 배포 단계를 오케스트레이션하려면?</p>
+                <ul>
+                    <li>A) AWS Step Functions</li>
+                    <li>B) Amazon SageMaker Pipelines</li>
+                    <li>C) AWS Lambda</li>
+                    <li>D) Amazon EventBridge</li>
+                </ul>
+                <div class="exam-tip">
+                    <strong>정답: B</strong><br>
+                    SageMaker Pipelines는 ML 워크플로우를 위한 전용 CI/CD 서비스입니다. MLOps 구현의 핵심 도구입니다.
+                </div>
+            </div>
+
+            <div class="service-card">
+                <h4>문제 6: Amazon Transcribe</h4>
+                <p>고객 서비스 통화 녹음을 텍스트로 변환하고 분석하려고 합니다. 어떤 서비스를 사용해야 하나요?</p>
+                <ul>
+                    <li>A) Amazon Polly</li>
+                    <li>B) Amazon Transcribe</li>
+                    <li>C) Amazon Translate</li>
+                    <li>D) Amazon Comprehend</li>
+                </ul>
+                <div class="exam-tip">
+                    <strong>정답: B</strong><br>
+                    Transcribe는 음성을 텍스트로 변환하는 자동 음성 인식(ASR) 서비스입니다. 화자 식별 기능도 제공합니다.
+                </div>
+            </div>
+
+            <div class="service-card">
+                <h4>문제 7: 비용 최적화</h4>
+                <p>SageMaker에서 모델 훈련 비용을 절감하기 위해 사용할 수 있는 인스턴스 유형은?</p>
+                <ul>
+                    <li>A) On-Demand 인스턴스만 사용 가능</li>
+                    <li>B) Spot 인스턴스 사용 가능</li>
+                    <li>C) Reserved 인스턴스만 사용 가능</li>
+                    <li>D) Dedicated 호스트만 사용 가능</li>
+                </ul>
+                <div class="exam-tip">
+                    <strong>정답: B</strong><br>
+                    SageMaker는 Spot 인스턴스를 지원하여 최대 90% 비용 절감이 가능합니다. 훈련 작업에 특히 유용합니다.
+                </div>
+            </div>
+
+            <div class="service-card">
+                <h4>문제 8: Amazon Kendra</h4>
+                <p>기업 내부 문서, FAQ, 매뉴얼에서 자연어 질문으로 정보를 검색하는 지능형 검색 서비스는?</p>
+                <ul>
+                    <li>A) Amazon Elasticsearch</li>
+                    <li>B) Amazon Kendra</li>
+                    <li>C) Amazon CloudSearch</li>
+                    <li>D) Amazon Comprehend</li>
+                </ul>
+                <div class="exam-tip">
+                    <strong>정답: B</strong><br>
+                    Kendra는 ML 기반 엔터프라이즈 검색 서비스입니다. 자연어 질의를 이해하고 관련 문서를 찾아줍니다.
+                </div>
+            </div>
+        </section>
+
+        <section class="domain-section">
+            <h2>상황별 서비스 선택 가이드</h2>
+            
+            <h3>이미지/비디오 처리</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>서비스</th>
+                        <th>사용 사례</th>
+                        <th>장점</th>
+                        <th>단점</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Amazon Rekognition</strong></td>
+                        <td>얼굴 인식, 객체 감지, 콘텐츠 조정</td>
+                        <td>코드 없이 즉시 사용, 저렴</td>
+                        <td>커스터마이징 제한적</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Amazon Textract</strong></td>
+                        <td>PDF, 스캔 문서에서 텍스트/테이블 추출</td>
+                        <td>양식 및 테이블 구조 이해</td>
+                        <td>일반 이미지 분석 불가</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SageMaker + 커스텀 모델</strong></td>
+                        <td>특수한 이미지 분류/감지 작업</td>
+                        <td>완전한 제어, 높은 정확도</td>
+                        <td>비용 높음, 전문 지식 필요</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>텍스트 분석</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>서비스</th>
+                        <th>사용 사례</th>
+                        <th>가격</th>
+                        <th>특징</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Amazon Comprehend</strong></td>
+                        <td>감정 분석, 엔티티 추출, 언어 감지</td>
+                        <td>저렴 (100자당 $0.0001)</td>
+                        <td>사전 정의된 기능만</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Comprehend Medical</strong></td>
+                        <td>의료 기록, 처방전, 진단서 분석</td>
+                        <td>Comprehend보다 비쌈</td>
+                        <td>HIPAA 준수, 의료 엔티티 특화</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Amazon Bedrock</strong></td>
+                        <td>복잡한 텍스트 생성, 요약, 질의응답</td>
+                        <td>토큰당 과금 (더 비쌈)</td>
+                        <td>유연성, 창의적 작업</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SageMaker + Hugging Face</strong></td>
+                        <td>특정 도메인 언어 모델</td>
+                        <td>가장 비쌈 (인프라 비용)</td>
+                        <td>완전한 제어</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>대화형 인터페이스</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>서비스</th>
+                        <th>사용 사례</th>
+                        <th>장점</th>
+                        <th>제한사항</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Amazon Lex</strong></td>
+                        <td>고객 서비스 봇, 음성 비서</td>
+                        <td>음성+텍스트, Lambda 통합</td>
+                        <td>정해진 대화 흐름</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bedrock + LangChain</strong></td>
+                        <td>자유로운 대화, 복잡한 질의</td>
+                        <td>유연성, 창의적 응답</td>
+                        <td>환각(hallucination) 가능</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Amazon Kendra</strong></td>
+                        <td>문서 기반 질의응답</td>
+                        <td>정확한 출처 제공</td>
+                        <td>생성 불가, 검색만</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="domain-section">
+            <h2>시험 팁: 키워드로 서비스 선택하기</h2>
+            
+            <div class="service-card">
+                <h4>핵심 키워드 매칭</h4>
+                <p>시험에서 문제의 키워드를 보고 빠르게 서비스를 선택하는 방법:</p>
+                <ul>
+                    <li><strong>"즉시 사용", "사전 학습"</strong> → AI 서비스 (Rekognition, Comprehend 등)</li>
+                    <li><strong>"커스터마이징", "자체 데이터"</strong> → SageMaker</li>
+                    <li><strong>"생성형 AI", "Foundation Model", "LLM"</strong> → Bedrock</li>
+                    <li><strong>"문서 추출", "OCR", "테이블"</strong> → Textract</li>
+                    <li><strong>"감정 분석", "엔티티 인식"</strong> → Comprehend</li>
+                    <li><strong>"얼굴 인식", "객체 감지", "콘텐츠 조정"</strong> → Rekognition</li>
+                    <li><strong>"챗봇", "대화형"</strong> → Lex</li>
+                    <li><strong>"검색", "자연어 질의"</strong> → Kendra</li>
+                    <li><strong>"추천", "개인화"</strong> → Personalize</li>
+                    <li><strong>"시계열 예측", "수요 예측"</strong> → Forecast</li>
+                    <li><strong>"사기 탐지"</strong> → Fraud Detector</li>
+                    <li><strong>"의료", "HIPAA"</strong> → Medical 버전 서비스</li>
+                    <li><strong>"비용 절감", "훈련"</strong> → Spot 인스턴스</li>
+                    <li><strong>"편향 감지", "설명 가능성"</strong> → SageMaker Clarify</li>
+                    <li><strong>"자동화", "파이프라인", "MLOps"</strong> → SageMaker Pipelines</li>
+                    <li><strong>"AutoML", "자동 ML"</strong> → SageMaker Autopilot</li>
+                    <li><strong>"음성 → 텍스트"</strong> → Transcribe</li>
+                    <li><strong>"텍스트 → 음성"</strong> → Polly</li>
+                    <li><strong>"번역"</strong> → Translate</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h4>생성형 AI 키워드</h4>
+                <span class="keyword-tag">Foundation Model</span>
+                <span class="keyword-tag">LLM</span>
+                <span class="keyword-tag">프롬프트 엔지니어링</span>
+                <span class="keyword-tag">RAG</span>
+                <span class="keyword-tag">Fine-tuning</span>
+                <span class="keyword-tag">임베딩</span>
+                <span class="keyword-tag">토큰</span>
+                <span class="keyword-tag">컨텍스트 윈도우</span>
+                <span class="keyword-tag">Zero-shot</span>
+                <span class="keyword-tag">Few-shot</span>
+            </div>
+
+            <div class="service-card">
+                <h4>ML 키워드</h4>
+                <span class="keyword-tag">지도 학습</span>
+                <span class="keyword-tag">비지도 학습</span>
+                <span class="keyword-tag">강화 학습</span>
+                <span class="keyword-tag">특성 엔지니어링</span>
+                <span class="keyword-tag">과적합</span>
+                <span class="keyword-tag">과소적합</span>
+                <span class="keyword-tag">교차 검증</span>
+                <span class="keyword-tag">하이퍼파라미터</span>
+                <span class="keyword-tag">앙상블</span>
+            </div>
+
+            <div class="service-card">
+                <h4>책임 있는 AI 키워드</h4>
+                <span class="keyword-tag">편향</span>
+                <span class="keyword-tag">공정성</span>
+                <span class="keyword-tag">설명 가능성</span>
+                <span class="keyword-tag">투명성</span>
+                <span class="keyword-tag">프라이버시</span>
+                <span class="keyword-tag">Guardrails</span>
+                <span class="keyword-tag">윤리</span>
+                <span class="keyword-tag">책임</span>
+            </div>
+        </section>
+
+        <section class="domain-section">
+            <h2>자주 나오는 시험 문제 패턴</h2>
+            
+            <div class="service-card">
+                <h4>1. 서비스 선택</h4>
+                <p><strong>문제:</strong> 고객 리뷰의 감정을 분석하려면?</p>
+                <p><strong>답:</strong> Amazon Comprehend (사전 학습된 NLP 서비스)</p>
+            </div>
+
+            <div class="service-card">
+                <h4>2. RAG vs Fine-tuning</h4>
+                <p><strong>문제:</strong> 회사 문서를 기반으로 질문에 답하는 챗봇을 만들려면?</p>
+                <p><strong>답:</strong> Amazon Bedrock Knowledge Bases (RAG)</p>
+            </div>
+
+            <div class="service-card">
+                <h4>3. 책임 있는 AI</h4>
+                <p><strong>문제:</strong> LLM이 유해한 콘텐츠를 생성하지 않도록 하려면?</p>
+                <p><strong>답:</strong> Amazon Bedrock Guardrails 사용</p>
+            </div>
+
+            <div class="service-card">
+                <h4>4. 이미지 처리</h4>
+                <p><strong>문제:</strong> 사진에서 얼굴을 인식하고 감정을 분석하려면?</p>
+                <p><strong>답:</strong> Amazon Rekognition</p>
+            </div>
+
+            <div class="service-card">
+                <h4>5. 음성 처리</h4>
+                <p><strong>문제:</strong> 콜센터 녹음을 텍스트로 변환하고 감정 분석하려면?</p>
+                <p><strong>답:</strong> Amazon Transcribe + Amazon Comprehend</p>
+            </div>
+
+            <div class="service-card">
+                <h4>6. 커스텀 ML</h4>
+                <p><strong>문제:</strong> 자체 데이터로 커스텀 ML 모델을 학습하고 배포하려면?</p>
+                <p><strong>답:</strong> Amazon SageMaker</p>
+            </div>
+
+            <div class="service-card">
+                <h4>7. 비용 최적화</h4>
+                <p><strong>문제:</strong> SageMaker 훈련 비용을 최대 90% 절감하려면?</p>
+                <p><strong>답:</strong> Spot 인스턴스 사용</p>
+            </div>
+
+            <div class="service-card">
+                <h4>8. 문서 처리</h4>
+                <p><strong>문제:</strong> 스캔된 영수증에서 항목과 금액을 추출하려면?</p>
+                <p><strong>답:</strong> Amazon Textract (양식 및 테이블 추출)</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 AWS 자격증 공부 가이드. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
